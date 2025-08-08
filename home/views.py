@@ -8,3 +8,11 @@ def homepage(request):
 
 def about_page(request):
     return render(request,'about.html')
+
+def menu_list(request):
+    menu_items=[
+        {'name':'Paneer Butter Masala','price':180},
+        {'name':'Kerala sadhya','price':100},
+        {'name':'Masala dosha','price':80},
+    ]
+    return render(request,'menu.html',{'menu_items':menu_items})
