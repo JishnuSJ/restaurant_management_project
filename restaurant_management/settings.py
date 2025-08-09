@@ -86,7 +86,7 @@ DATABASES = {
     }
 }
 
-RESTAURANT_PHONE='+91 9835748323'
+RESTAURANT_PHONE='+91 983573327'
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
