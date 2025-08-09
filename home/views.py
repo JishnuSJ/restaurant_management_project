@@ -4,7 +4,9 @@ from django.shortcuts import render
 def homepage(request):
     restaurant = Restaurant.objects.first()
     restaurant_name = restaurant.restaurant_name if restaurant else "Restaurant"
-    phone = settings.RESTAURANT_PHONE
+    context = {
+        'restaurant_phone':settings.RESTAURANT_PHONE
+    }
     return render(request,'Homepage.html',{'restaurant_name':restaurant_name,'phone':phone})
 
 def about_page(request):
