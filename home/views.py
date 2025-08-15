@@ -19,3 +19,21 @@ def menu_list(request):
         {'name':'Masala dosha','price':80},
     ]
     return render(request,'menu.html',{'menu_items':menu_items})
+
+
+class CustomerDetailsview(APIView):
+    def get(self,request,customer_id):
+        try:
+            customer = Customer.objects.get(id=customer_id)
+            serializer = CustomerSerializer(customer)
+            return Response(serializer.data,status=status,HTTP_200_OK)
+        except Customer.DoesNotExist:
+            return Response(
+                {"error":"Customer not found"},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        except Exception as e:
+            return Response(
+                {"error":"An excpeted error occure","details":str(e)},status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
