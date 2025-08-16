@@ -52,6 +52,17 @@
             colour:white;
             font-weight:bold;
             }
+            .search-input{
+                margin:40px auto;
+                text-align: center;
+            }
+            .serach-button{
+                width:60%;
+                max-width:400px;
+                padding:12px 16px;
+                border:2px solid #ff7043;
+                border-radius:8px 0 0 8px;
+            }
         </style>
     </head>
     <body>
@@ -60,6 +71,12 @@
             <h1>Welcome to the {{ restaurant_name }}</h1>
             <p>Restaurant Based system<p>
         </header>
+        <div>
+            <form method="GET" action="#">
+                <input type="text" name="q" placeholder="Search menu item" class="search-input">
+                <button type="submit" class="serach-button">Search</button>
+            </form>
+        </div>
         <nav>
             <a href="#">Home</a>
             <a href="#">Book food</a>
