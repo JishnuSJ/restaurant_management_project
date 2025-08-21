@@ -37,3 +37,11 @@ class CustomerDetailsview(APIView):
                 {"error":"An excpeted error occure","details":str(e)},status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
+class MenuView(APIView):
+    def get(self,request):
+        menu=[
+            {"name":"butter chicken","description":"tomato curry","price":120},
+            {"name":"porotta chicken","description":"porotta with beef curry","price":230},
+            {"name":"onam sadya","description":"kerala onam sadya","price":300}
+        ]
+        return Response(menu)
