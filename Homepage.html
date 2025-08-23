@@ -86,6 +86,15 @@
         <main>
             <p>Discover amazing food ,kerala style foods</p>
             <p>Order Now</p>
+            {% for item in enu_items %}
+            <div class="menu-item">
+                <h3>{{ item.name }}</h3>
+                <p>{{ item.description }}</p>
+            </div>
+            {% empty %}
+                <p>no menu items</p>
+            {% endfor %}
+
         </main>
         <footer>
             @2025 :{{restaurant_name}} based syste all rights reserved,opening hours:mon-fri || 10-5
