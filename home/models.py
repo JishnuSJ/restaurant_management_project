@@ -33,3 +33,10 @@ class Order(models.Model):
 
     def __str__(self):
         return f"Order by {self.customer_name} on {self.created_at.strftime('%y-%m-%d')}"
+
+
+
+
+
+python manage.py makemigration
+python manage.py migrate
