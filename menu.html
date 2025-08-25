@@ -1,0 +1,8 @@
+<h1>Menu items</h1>
+<ul>
+    {% for item in menu_item %}
+    <li>
+        <h3>{{item.name}}</h3>
+        <h4>{{item.description}}</h4>
+    </li>
+    {% endfor %}
