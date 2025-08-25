@@ -41,5 +41,11 @@ class Contactform(models.Model):
     email = models.EmailField()
     submitted_at = models.DateTimeField(auto_now_add=True)
 
+
+class Menuitem(models.Model):
+    name =  models.CharField(max_length=100)
+    description = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=6)
+
 python manage.py makemigration
 python manage.py migrate
