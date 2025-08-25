@@ -36,7 +36,10 @@ class Order(models.Model):
 
 
 
-
+class Contactform(models.Model):
+    name = models.CharField(max_digits=100)
+    email = models.EmailField()
+    submitted_at = models.DateTimeField(auto_now_add=True)
 
 python manage.py makemigration
 python manage.py migrate
