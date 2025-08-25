@@ -7,7 +7,7 @@ def homepage(request):
     phone = {
         'restaurant_phone':settings.RESTAURANT_PHONE
     }
-    return render(request,'Homepage.html',{'restaurant_name':restaurant_name,phone})
+    return render(request,'Homepage.html',{'restaurant_namee':restaurant_name,phone})
 
 def about_page(request):
     return render(request,'about.html')
