@@ -47,5 +47,9 @@ class Menuitem(models.Model):
     description = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=6)
 
+
+class Restaurantinfo(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.TextField()
 python manage.py makemigration
 python manage.py migrate
