@@ -51,5 +51,8 @@ class Menuitem(models.Model):
 class Restaurantinfo(models.Model):
     name = models.CharField(max_length=100)
     address = models.TextField()
+    city = models.CharField(max_length=50)
+    state = models.CharField(max_length=50)
+    zip_code = models.CharField(max_length=20)
 python manage.py makemigration
 python manage.py migrate
