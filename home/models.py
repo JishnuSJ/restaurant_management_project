@@ -46,7 +46,7 @@ class Menuitem(models.Model):
     name =  models.CharField(max_length=100)
     description = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=6)
-
+    image = models.ImageField(upload_to='menu_image/',blank=True,null=True)
 
 class Restaurantinfo(models.Model):
     name = models.CharField(max_length=100)
