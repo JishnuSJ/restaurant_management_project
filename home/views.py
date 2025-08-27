@@ -7,6 +7,11 @@ def homepage(request):
     phone = {
         'restaurant_phone':settings.RESTAURANT_PHONE
     }
+    info = RestaurantInfo.objects.first()
+    context = {
+        'resturant_name': info.name if info else "Our Resturant"
+        'resturant_address';info.address if info else "address not avaliable"
+    }
     return render(request,'Homepage.html',{'restaurant_namee':restaurant_name,phone})
 
 def about_page(request):
