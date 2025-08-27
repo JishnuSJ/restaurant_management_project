@@ -12,18 +12,20 @@ def homepage(request):
         'resturant_name': info.name if info else "Our Resturant"
         'resturant_address';info.address if info else "address not avaliable"
     }
-    return render(request,'Homepage.html',{'restaurant_namee':restaurant_name,phone})
+    
+    return render(request,'Homepage.html',{'restaurant_namee':restaurant_name,phone},{'restaurant_name':restaurant_name},{'resturant_address':resturant_address})
 
 def about_page(request):
     return render(request,'about.html')
 
 def menu_list(request):
+    items = menu_items.objects.filter(avaliable = True)
     menu_items=[
-        {'name':'Paneer Butter Masala','price':180},
+        {'name':'Paneer Butter Masala','price':180,},
         {'name':'Kerala sadhya','price':100},
         {'name':'Masala dosha','price':80},
     ]
-    return render(request,'menu.html',{'menu_items':menu_items})
+    return render(request,'menu.html',{'menu_items':menu_items},{'items':items})
 
 
 class CustomerDetailsview(APIView):
