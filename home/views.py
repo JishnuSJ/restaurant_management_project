@@ -4,6 +4,12 @@ from django.shortcuts import render
 def homepage(request):
     restaurant = Restaurant.objects.first()
     restaurant_name = restaurant.restaurant_name if restaurant else "Restaurant"
+    query = request.GET.get('q','')
+    if query:
+        menu_item = MenuItem.objects.filter(name__iconntains=query)
+    else:
+        menu_item = MenuItem.objects.all()
+    
     phone = {
         'restaurant_phone':settings.RESTAURANT_PHONE
     }
@@ -14,7 +20,8 @@ def homepage(request):
         'opening_hours':info.opening_hours if info else {}
     }
     
-    return render(request,'Homepage.html',{'restaurant_namee':restaurant_name,phone},{'restaurant_name':restaurant_nam},{'resturant_address':resturant_addres})
+    return render(request,'Homepage.html',{'restaurant_namee':restaurant_name,phone},{'restaurant_name':restaurant_nam},{'resturant_address':resturant_addres}
+    ,{'menu_item':menu_item,'query':query})
 
 def about_page(request):
     return render(request,'about.html')
