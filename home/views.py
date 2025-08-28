@@ -9,11 +9,11 @@ def homepage(request):
     }
     info = RestaurantInfo.objects.first()
     context = {
-        'resturant_name': info.name if info else "Our Resturant"
-        'resturant_address';info.address if info else "address not avaliable"
+        'resturant_nam': info.name if info else "Our Resturant"
+        'resturant_addres';info.address if info else "address not avaliable"
     }
     
-    return render(request,'Homepage.html',{'restaurant_namee':restaurant_name,phone},{'restaurant_name':restaurant_name},{'resturant_address':resturant_address})
+    return render(request,'Homepage.html',{'restaurant_namee':restaurant_name,phone},{'restaurant_name':restaurant_nam},{'resturant_address':resturant_addres})
 
 def about_page(request):
     return render(request,'about.html')
