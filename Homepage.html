@@ -70,6 +70,10 @@
             <div class='text-logo'>Prepex Restaurant</div>
             <h1>Welcome to the {{ restaurant_name }}</h1>
             <p>Restaurant Based system<p>
+            <form method="get" action="{%url 'home'%}" class="search-bar">
+                <input type="text" name="q" placeholder="serach-menu" value="{{query}}">
+                <button type="submit">search</button>
+            </form>
         </header>
         <div>
             <form method="GET" action="#">
