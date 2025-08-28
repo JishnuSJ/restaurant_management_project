@@ -54,5 +54,6 @@ class Restaurantinfo(models.Model):
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     zip_code = models.CharField(max_length=20)
+    opening_hours = models.JSONField(default=dict)
 python manage.py makemigration
 python manage.py migrate
