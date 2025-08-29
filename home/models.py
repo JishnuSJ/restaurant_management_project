@@ -47,6 +47,8 @@ class Menuitem(models.Model):
     description = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=6)
     image = models.ImageField(upload_to='menu_image/',blank=True,null=True)
+    available = models.BooleanField(default=True)
+
 
 class Restaurantinfo(models.Model):
     name = models.CharField(max_length=100)
@@ -55,5 +57,8 @@ class Restaurantinfo(models.Model):
     state = models.CharField(max_length=50)
     zip_code = models.CharField(max_length=20)
     opening_hours = models.JSONField(default=dict)
+
+
+
 python manage.py makemigration
 python manage.py migrate
