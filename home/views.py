@@ -60,3 +60,4 @@ class MenuView(APIView):
             {"name":"onam sadya","description":"kerala onam sadya","price":300}
         ]
         return Response(menu)
+    
