@@ -9,3 +9,8 @@ class ContactForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'placeholder':'yourname'}),
             'email':forms.EmailInput(attrs={'placeholder':'your email'})
         }
+        def clean_email(self):
+            email = self.cleaned_data.get('email')
+            if not email or '@'not in email:
+                raise forms.validationError("please enter valid email")
+            return email
