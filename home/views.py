@@ -18,6 +18,7 @@ def homepage(request):
         'resturant_nam': info.name if info else "Our Resturant"
         'resturant_addres':info.address if info else "address not avaliable"
         'opening_hours':info.opening_hours if info else {}
+        'phone':info.phone if info else "number not "
     }
     
     return render(request,'Homepage.html',{'restaurant_namee':restaurant_name,phone},{'restaurant_name':restaurant_nam},{'resturant_address':resturant_addres}
