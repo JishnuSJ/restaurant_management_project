@@ -58,7 +58,7 @@ class Restaurantinfo(models.Model):
     zip_code = models.CharField(max_length=20)
     opening_hours = models.JSONField(default=dict)
     phone = models.CharField(max_length=100)
-
+    logo = models.ImageField(upload_to='res_logo',blank=True,null= True)
 
 python manage.py makemigration
 python manage.py migrate
