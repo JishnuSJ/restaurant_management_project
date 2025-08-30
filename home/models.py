@@ -60,5 +60,7 @@ class Restaurantinfo(models.Model):
     phone = models.CharField(max_length=100)
     logo = models.ImageField(upload_to='res_logo',blank=True,null= True)
 
+class about_view(models.Model):
+    return render(request,'about.html')
 python manage.py makemigration
 python manage.py migrate
