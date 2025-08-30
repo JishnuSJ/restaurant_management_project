@@ -5,6 +5,8 @@ def homepage(request):
     restaurant = Restaurant.objects.first()
     restaurant_name = restaurant.restaurant_name if restaurant else "Restaurant"
     query = request.GET.get('q','')
+    cart = request.session.get('cart',{})
+    total_item = sum(cart.values())
     if query:
         menu_item = MenuItem.objects.filter(name__iconntains=query)
     else:
@@ -22,7 +24,7 @@ def homepage(request):
     }
     
     return render(request,'Homepage.html',{'restaurant_namee':restaurant_name,phone},{'restaurant_name':restaurant_nam},{'resturant_address':resturant_addres}
-    ,{'menu_item':menu_item,'query':query})
+    ,{'menu_item':menu_item,'query':query},{"total_item":total_item})
 
 def about_page(request):
     return render(request,'about.html')
