@@ -74,6 +74,11 @@
                 <input type="text" name="q" placeholder="serach-menu" value="{{query}}">
                 <button type="submit">search</button>
             </form>
+            <div class="datetime-display">
+                <p><strong>Date</strong>{{now|date:"l,d F Y"}}</p>
+                <p><strong>Time</strong>{{now|time:"H:i"}}</p>
+            
+            </div>
         </header>
         <div>
             <form method="GET" action="#">
