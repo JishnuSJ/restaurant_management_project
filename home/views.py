@@ -64,3 +64,5 @@ class MenuView(APIView):
         ]
         return Response(menu)
     
+def faq_view(request):
+    return render(request,'faq.html')
