@@ -21,10 +21,14 @@ def homepage(request):
         'opening_hours':info.opening_hours if info else {}
         'phone':info.phone if info else "number not "
     }
+    breadcrumbs = [
+        {'name':'Home','url':'/'}
+
+    ]
     
     return render(request,'Homepage.html',{'restaurant_namee':restaurant_name,phone},{'restaurant_name':restaurant_nam},{'resturant_address':resturant_addres}
     ,{'menu_item':menu_item,'query':query},{"total_item":total_item},{'restaurant_phone':settings.RESTAURANT_PHONE},
-    {'now':timezone.location(),})
+    {'now':timezone.location(),}{'breadcrumbs':breadcrumbs})
 
 def about_page(request):
     return render(request,'about.html')
