@@ -64,5 +64,5 @@ class MenuView(APIView):
         ]
         return Response(menu)
     
-def faq_view(request):
+def privacy-policy(request):
     return render(request,'faq.html')
