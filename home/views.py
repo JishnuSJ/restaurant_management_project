@@ -25,10 +25,11 @@ def homepage(request):
         {'name':'Home','url':'/'}
 
     ]
-    
+    form = AuthenticationForm()    
     return render(request,'Homepage.html',{'restaurant_namee':restaurant_name,phone},{'restaurant_name':restaurant_nam},{'resturant_address':resturant_addres}
     ,{'menu_item':menu_item,'query':query},{"total_item":total_item},{'restaurant_phone':settings.RESTAURANT_PHONE},
-    {'now':timezone.location(),}{'breadcrumbs':breadcrumbs})
+    {'now':timezone.location(),}{'breadcrumbs':breadcrumbs},{form:form})
+
 
 def about_page(request):
     return render(request,'about.html')
