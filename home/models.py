@@ -65,7 +65,10 @@ class Feedback(models.Model):
     message = models.TextField()
     submitted_at = models.DateTimeField(auto_now_add=True)
 
-
+class Todayspecial(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+    price = models.DecimalField(max_digits=6,decimal_places=6)
 
 python manage.py makemigration
 python manage.py migrate
