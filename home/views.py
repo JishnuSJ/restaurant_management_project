@@ -46,6 +46,14 @@ def menu_list(request):
     return render(request,'menu.html',{'menu_items':menu_items},{'items':items})
 
 
+def add_cart(request,item_id):
+    cart = request.session.get('cart',{})
+    request.session['cart']=cart
+    return redirect('view_cart')
+
+
+
+
 class CustomerDetailsview(APIView):
     def get(self,request,customer_id):
         try:
