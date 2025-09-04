@@ -71,3 +71,5 @@ class MenuView(APIView):
     
 def privacy-policy(request):
     return render(request,'faq.html')
+
+    
