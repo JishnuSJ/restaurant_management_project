@@ -83,3 +83,9 @@ def privacy-policy(request):
     return render(request,'faq.html')
 
     
+def contactview(request):
+    info = RestaurantInfo.objects.first()
+    context = {
+        'rest_address' = info.address if info else "address not available"
+    }
+    return render(request,'contact.html',context)
