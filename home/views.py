@@ -18,7 +18,7 @@ def homepage(request):
     context = {
         'resturant_nam': info.name if info else "Our Resturant"
         'resturant_addres':info.address if info else "address not avaliable"
-        'opening_hours':info.opening_hours if info else {}
+        'opening_hours':info.opening_hour if info else {}
         'phone':info.phone if info else "number not "
     }
     breadcrumbs = [
