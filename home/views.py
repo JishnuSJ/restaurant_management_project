@@ -88,4 +88,7 @@ def contactview(request):
     context = {
         'rest_address' = info.address if info else "address not available"
     }
-    return render(request,'contact.html',context)
+    return redirct(thankyou)
+
+def thankyou(request):
+    return render(request,'thankyou.html')
