@@ -13,7 +13,7 @@ def homepage(request):
     else:
         menu_item = MenuItem.objects.all()
     
-   
+   chef = Chef.objects.first()
     info = RestaurantInfo.objects.first()
     context = {
         'resturant_nam': info.name if info else "Our Resturant"
@@ -30,7 +30,7 @@ def homepage(request):
 
     return render(request,'Homepage.html',{'restaurant_namee':restaurant_name,phone},{'restaurant_name':restaurant_nam},{'resturant_address':resturant_addres}
     ,{'menu_item':menu_item,'query':query},{"total_item":total_item},{'restaurant_phone':settings.RESTAURANT_PHONE},
-    {'now':timezone.location(),}{'breadcrumbs':breadcrumbs},{form:form},{'spe':spe})
+    {'now':timezone.location(),}{'breadcrumbs':breadcrumbs},{form:form},{'spe':spe},{'chef':chef})
 
 
 def about_page(request):
