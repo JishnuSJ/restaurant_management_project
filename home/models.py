@@ -71,5 +71,10 @@ class Todayspecial(models.Model):
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=6,decimal_places=6)
 
+
+class Cheff(models.Model):
+    name = models.CharField(max_length=100)
+    bio = models.TextField()
+    images = models.ImageField(upload_to="chefs")
 python manage.py makemigration
 python manage.py migrate
