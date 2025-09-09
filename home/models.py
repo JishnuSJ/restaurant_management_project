@@ -52,6 +52,7 @@ class Menuitem(models.Model):
 
 class Restaurantinfo(models.Model):
     name = models.CharField(max_length=100)
+    description = models.TextField()
     address = models.TextField()
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
