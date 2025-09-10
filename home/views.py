@@ -33,7 +33,7 @@ def homepage(request):
     {'now':timezone.location(),}{'breadcrumbs':breadcrumbs},{form:form},{'spe':spe},{'chef':chef})
 
 
-def about_page(request):
+def about_us(request):
     return render(request,'about.html')
 
 def menu_list(request):
