@@ -92,3 +92,13 @@ def contactview(request):
 
 def thankyou(request):
     return render(request,'thankyou.html')
+
+def contact_us(request):
+    if request.method=='POST':
+        form=ContactForm(request.Post)
+        if for.isvalid():
+            form.save()
+            message.success(request,"thankyou,essage send successfull")
+        else:
+            form = ContactForm
+        return render(request,'contact_us.html'{'form':form})
