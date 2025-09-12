@@ -125,6 +125,8 @@
             <h3>Our chefs</h3>
             <p>{{chef.name}} - <a href="{% url 'about_chef' %}"></a></p>
         </div>
+        <nav>
+            {% block breadcrumbs %}{% endblock %}
         
         <footer>
             @2025 :{{restaurant_name}} based syste all rights reserved,opening hours:mon-fri || 10-5
