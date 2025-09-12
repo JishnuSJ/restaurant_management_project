@@ -27,7 +27,10 @@ def homepage(request):
     ]
     form = AuthenticationForm()
     spe = TodaySpecial.objects.filter(added_on=timezone.localdate())
-
+    opening_hour = [
+        'Monday':'10:00 am-10 :00 PM'
+        'Tuesday':'10:00 a -10:00PM'
+    ]
     return render(request,'Homepage.html',{'restaurant_namee':restaurant_name,phone},{'restaurant_name':restaurant_nam},{'resturant_address':resturant_addres}
     ,{'menu_item':menu_item,'query':query},{"total_item":total_item},{'restaurant_phone':settings.RESTAURANT_PHONE},
     {'now':timezone.location(),}{'breadcrumbs':breadcrumbs},{form:form},{'spe':spe},{'chef':chef})
