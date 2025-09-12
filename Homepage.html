@@ -81,6 +81,9 @@
             
             </div>
         </header>
+    {% for days,hours in opening_hours.items %}
+        <li><strong>{{days}}{{hours}}</strong></li>
+    {% endfor %}
         <div>
             <img src="/img/dish.jpg" alt="dish 1">
             <img src="/img/dish2.jpg" alt="dish 2">
