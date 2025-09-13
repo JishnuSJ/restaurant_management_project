@@ -76,5 +76,11 @@ class Cheff(models.Model):
     name = models.CharField(max_length=100)
     bio = models.TextField()
     images = models.ImageField(upload_to="chefs")
+
+class Subscribers(models.Model):
+    email = models.EmailField(unique=True)
+    Subscribed = models.DateTimeField(auto_now_add=True)
+
+
 python manage.py makemigration
 python manage.py migrate
