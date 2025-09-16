@@ -82,5 +82,8 @@ class Subscribers(models.Model):
     Subscribed = models.DateTimeField(auto_now_add=True)
 
 
+class MenuCategory(models.Model):
+    name = models.CharField(max_length=100,unique=True)
+
 python manage.py makemigration
 python manage.py migrate
