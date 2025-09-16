@@ -105,3 +105,7 @@ def contact_us(request):
         else:
             form = ContactForm
         return render(request,'contact_us.html'{'form':form})
+
+class MenuCategoryListView(ListAPI):
+    queryset = MenuCategory.objects.all()
+    serializer_class = MenuCategorySerializer
