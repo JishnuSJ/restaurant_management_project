@@ -85,5 +85,11 @@ class Subscribers(models.Model):
 class MenuCategory(models.Model):
     name = models.CharField(max_length=100,unique=True)
 
+class OrderStatus(models.Model):
+    name = models.CharFields(max_length=100,unique=True)
+
+class Order(models.Model):
+    status = models.ForeignKey(OrderStatus,on_delete=models.SET_NULL,nu8ll=true)
+
 python manage.py makemigration
 python manage.py migrate
