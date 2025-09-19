@@ -107,5 +107,17 @@ def contact_us(request):
         return render(request,'contact_us.html'{'form':form})
 
 class MenuCategoryListView(ListAPI):
-    pagination_class = MenuCategoryListView
+    pagination_class = MenuCategoryserializer
+
+    def serach(self,request):
+        query = request.query_params.get('q','')
+        if query:
+            items = MenuItem.objects.filter(name__icontains=query)
+        else:
+            items=MenuItem.objects.all()
+        
+        paginator= self.paginator_class()
+        pagianted_items=paginator.pagination_query(items,request)
+        return paginator.get_paginated_response(serializer.data)
+
     
