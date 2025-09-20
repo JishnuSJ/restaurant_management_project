@@ -30,7 +30,7 @@ class Order(models.Model):
     total_amount = models.DecimalField(max_digits=8,decimal_places=2)
     status = models.CharField(max_length=10,choice=ORDER_STATUS_CHOICES,default="PENDING")
     created_at = models.DateTimeField(auto_now_add=True)
-
+    
     def __str__(self):
         return f"Order by {self.customer_name} on {self.created_at.strftime('%y-%m-%d')}"
 
@@ -88,8 +88,10 @@ class MenuCategory(models.Model):
 class OrderStatus(models.Model):
     name = models.CharFields(max_length=100,unique=True)
 
-class Order(models.Model):
+class OrderItem(models.Model):
     status = models.ForeignKey(OrderStatus,on_delete=models.SET_NULL,nu8ll=true)
-
+    name = models.CharField(max_length=100)
+    quantity = models.PositiveInteger()
+    price = models.DecimalField(max_length=8,decimal_places=2)
 python manage.py makemigration
 python manage.py migrate
