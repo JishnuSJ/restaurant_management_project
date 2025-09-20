@@ -48,6 +48,7 @@ class Menuitem(models.Model):
     price = models.DecimalField(max_digits=6)
     image = models.ImageField(upload_to='menu_image/',blank=True,null=True)
     available = models.BooleanField(default=True)
+    category = models.ForeignKey(MenuCategory,on_delete=models.CASCADE,related_name="items")
 
 
 class Restaurantinfo(models.Model):
@@ -93,5 +94,8 @@ class OrderItem(models.Model):
     name = models.CharField(max_length=100)
     quantity = models.PositiveInteger()
     price = models.DecimalField(max_length=8,decimal_places=2)
+    
+
+
 python manage.py makemigration
 python manage.py migrate
