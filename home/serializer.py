@@ -1,5 +1,5 @@
 class MenuCategoryserializer(serializer.ModelSerializer):
     class Meta:
         models=MenuCategory
-        fields = ['id','name','description','price','category']
+        fields = ['id','name','description','price','category','is_available']
 
