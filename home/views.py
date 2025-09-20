@@ -118,6 +118,6 @@ class MenuCategoryListView(ListAPI):
         
         paginator= self.paginator_class()
         pagianted_items=paginator.pagination_query(items,request)
-        return paginator.get_paginated_response(serializer.data)
+    return paginator.get_paginated_response(serializer.data)
 
     
