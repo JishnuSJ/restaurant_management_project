@@ -125,3 +125,9 @@ def register_user(requset):
     email = request.data.get('email')
     if not is_valid_email(email):
         return Response({"error":"Invalid error"},status=status.HTTP_400_BAD_REQUEST)
+
+def OrderdetailsView(RetrieveAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSeralizer
+    permission_class = [IsAuthenticated]
+    lookup_field = 'id'
