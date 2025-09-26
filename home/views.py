@@ -131,3 +131,15 @@ def OrderdetailsView(RetrieveAPIView):
     serializer_class = OrderSeralizer
     permission_class = [IsAuthenticated]
     lookup_field = 'id'
+
+class UserproofileViewSet(viewset.ViewSet):
+    permission_class=[Is_Authenticated]
+
+    def update(self,request):
+        user=request.user
+        serilaizer=UserProfileSerilaizer(user,data=request.data,partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"message":"profile updated"})
+        return Response(serializer.error,status=status.HTTP_400_BAD_REQUEST)
+        
