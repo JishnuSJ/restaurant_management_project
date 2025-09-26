@@ -5,3 +5,32 @@ def generate_coupen_code(length=10):
         code=' '.join(secret.choice(characters)for _ in range(length))
         if not Coupen.objects.filter(code=code).exists():
             return code
+
+logger = logging.getLogger(name)
+def send_order_confirmation_email(order_id,customer_email,customer_name,items,price):
+    
+    """
+    Args:
+    order_id(int),customer_email(str),customer_name(str),items(list),total_price(Decimal)
+    Returns:
+        dict:{'success':True}or|{'success':False,'error':'...'}
+    """
+
+    subject = f"Order Confirmation Order{order_id}"
+    item_list = '\n'.join([f"-{item}"for item in items])
+    messages ={
+        f"hai {customer_name}"
+        f"thankyou for order"
+
+    }
+    try:
+        send_mail(
+            subject,message,settings.DEFAULT_FROM_EMAIL,[customer_email],fail_silent=False
+        )
+        return {'success':True}
+    except BadHeaderError:
+        logger.error(f"BadErrorHeader sending email{customer_email}{customer_name})
+        return{'success':False,'error':'Invalid header found'}
+    except Exception as e:
+        logger.exception(f"error sending conformation{customer_email})
+        return{'success':False,'error':str(e)}
