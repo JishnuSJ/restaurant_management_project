@@ -61,6 +61,9 @@ class Restaurantinfo(models.Model):
     opening_hours = models.JSONField(default=dict)
     phone = models.CharField(max_length=100)
     logo = models.ImageField(upload_to='res_logo',blank=True,null= True)
+    opening_hours = models.CharField(max_length=50,help_task="comma separated days like 'mon,tues,wed,thuds,fri'")
+    
+
 
 class Feedback(models.Model):
     name = models.CharField(max_length=100)
