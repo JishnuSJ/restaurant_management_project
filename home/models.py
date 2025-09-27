@@ -98,6 +98,9 @@ class OrderItem(models.Model):
     quantity = models.PositiveInteger()
     price = models.DecimalField(max_length=8,decimal_places=2)
     
+class ActiveOrderMange(models.Manage):
+    def get_active_order(self):
+        return self.filter(status__in=['pending','processing'])
 
 
 python manage.py makemigration
