@@ -143,3 +143,7 @@ class UserproofileViewSet(viewset.ViewSet):
             return Response({"message":"profile updated"})
         return Response(serializer.error,status=status.HTTP_400_BAD_REQUEST)
         
+
+class ContactFormview(CreateAPIView):
+    queryset = ContactFormSubmission.object.all():
+    serializer_class= ContactFormSubmission
