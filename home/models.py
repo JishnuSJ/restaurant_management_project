@@ -21,12 +21,12 @@ class Menu(models.Model):
     def __str__(self):
         return self.name
     
-ORDER_STATUS_CHOICES = [
-    ('PENDING','Pending'),
-    ('CONFIRMED','Confirmed'),
-    ('DELIVERED','Delivered'),
-    ('CANCELLED','Cancelled'),
-]
+    ORDER_STATUS_CHOICES = [
+        ('PENDING','Pending'),
+        ('CONFIRMED','Confirmed'),
+        ('DELIVERED','Delivered'),
+        ('CANCELLED','Cancelled'),
+    ]
 
 class Order(models.Model):
     customer_name = models.CharField(max_length=100)
