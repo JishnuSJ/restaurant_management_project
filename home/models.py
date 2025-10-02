@@ -43,6 +43,7 @@ class Order(models.Model):
 class Contactform(models.Model):
     name = models.CharField(max_digits=100)
     email = models.EmailField()
+    message = models.TextField()
     submitted_at = models.DateTimeField(auto_now_add=True)
 
 
