@@ -26,6 +26,7 @@ class Menu(models.Model):
         ('CONFIRMED','Confirmed'),
         ('DELIVERED','Delivered'),
         ('CANCELLED','Cancelled'),
+        
     ]
 
 class Order(models.Model):
