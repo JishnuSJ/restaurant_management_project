@@ -122,7 +122,7 @@ class MenuCategoryListView(ListAPI):
 
     
 def register_user(requset):
-    email = request.data.get('email')
+    email_id= request.data.get('email')
     if not is_valid_email(email):
         return Response({"error":"Invalid error"},status=status.HTTP_400_BAD_REQUEST)
 
