@@ -2,9 +2,9 @@ def generate_coupen_code(length=10):
     "generate a alphanumberic coupen code"
     characters = string.ascii_uppercase+string.digits
     while True:
-        code=' '.join(secret.choice(characters)for _ in range(length))
-        if not Coupen.objects.filter(code=code).exists():
-            return code
+        order_id=' '.join(secret.choice(characters)for _ in range(length))
+        if not Coupen.objects.filter(code=order_id).exists():
+            return order_id
 
 logger = logging.getLogger(name)
 def send_order_confirmation_email(order_id,customer_email,customer_name,items,price):
