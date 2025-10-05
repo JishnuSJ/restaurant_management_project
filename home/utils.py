@@ -41,3 +41,17 @@ def get_daily_sales(target_date:date):
     orders = Order.objects.filter(created__at__date=target_date)
     total = order.aggregate(total_sum=Sum('total_price'))['total_sum']
     return total or 0
+
+def is_resturant_open():
+    """Return check open or not """
+    now = datetime.now()
+    current_day = now.weekday()
+    current_time = now.time()
+    opening_hours = {
+        0:(time(9,0),time(22,0)),#monday
+        1:(time(9,0),time(22,0)),#tuesday
+        6:(time(90),time(22,0)),#sunday
+
+    }
+    open_time,close_time = opening_hours.get(current_day)
+    return open_time <= current_time <= close_time
