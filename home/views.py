@@ -151,3 +151,9 @@ class ContactFormview(CreateAPIView):
 class TableDetailsView(generics.RetriveAPIView):
     query_set = Table.objects.all()
     serializer_class = TableSeralizer
+
+
+class AvailableTablesAPIView(generics.ListAPIView):
+    serializer_class = TableSeralizer
+    def get_query(self):
+        return Table.Objects.filter(is_avilable=True)
