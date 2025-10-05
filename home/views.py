@@ -157,3 +157,16 @@ class AvailableTablesAPIView(generics.ListAPIView):
     serializer_class = TableSeralizer
     def get_query(self):
         return Table.Objects.filter(is_avilable=True)
+
+
+class Coupenvalidate(APiView):
+    def Post(self,request):
+        code = request.data.get('code','').strip()
+        if not code:
+            return Response({'error':'Coupen code requeried'},status=status.HTTP_400_BAD_REQUEST)
+        total = date.total()
+        coupen = Coupen.objects.filter(code__iexact=code,is_active=True,valid_from__lte=total,valid_until__gte=total).first()
+        if not coupen:
+            return Response({'error':'Invalid or expired coupen'},status=status.HTTP_400_BAD_REQUEST)
+        
+        return Response({'success':True,'code':coupon_code,'discount_percentage':float(coupen.discount_percentage)})
