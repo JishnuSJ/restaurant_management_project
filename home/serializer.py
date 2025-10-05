@@ -15,3 +15,9 @@ class ContactFormmsubmittion(serializer.ModelSerializer):
     class Meta:
         model = ContactFormmsubmittion
         fields = ['name','email','message']
+
+
+class Tableserailizer(serializer.ModelSerializer):
+    class Meta:
+        model =Table
+        fields = ['id','table_number','capacity','is_available']
