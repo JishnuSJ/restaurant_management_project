@@ -34,3 +34,10 @@ def send_order_confirmation_email(order_id,customer_email,customer_name,items,pr
     except Exception as e:
         logger.exception(f"error sending conformation{customer_email})
         return{'success':False,'error':str(e)}
+
+
+def get_daily_sales(target_date:date):
+    """Return total sales report"""
+    orders = Order.objects.filter(created__at__date=target_date)
+    total = order.aggregate(total_sum=Sum('total_price'))['total_sum']
+    return total or 0
