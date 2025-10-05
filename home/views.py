@@ -147,3 +147,7 @@ class UserproofileViewSet(viewset.ViewSet):
 class ContactFormview(CreateAPIView):
     queryset = ContactFormSubmission.object.all():
     serializer_class= ContactFormSubmission
+
+class TableDetailsView(generics.RetriveAPIView):
+    query_set = Table.objects.all()
+    serializer_class = TableSeralizer
