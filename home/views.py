@@ -179,3 +179,12 @@ class updateOrderStatus(APIView):
             serializer.save()
             return Response({"message": "order status updated",'status':serializer.data['status']})
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    def post(self,request):
+        order_id = request.data.get('order_id')
+        new_status = request.data.get('stsatus')
+        allowed_status = [choice[0] for choice in Order.STATUS_CHOICES]
+        if new_status not in allowed_status:
+            return Response({'error':f"invalid status allowed values{allowed_status}",status=status.HTTP_400_BAD_REQUEST)
+        order.status = new_status
+        order.save()
+        return Response({'message':'Order status updated successfully','order_id':order_id,'new_status':order_status},status=status.HTTP_200_OK)
