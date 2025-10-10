@@ -170,3 +170,12 @@ class Coupenvalidate(APiView):
             return Response({'error':'Invalid or expired coupen'},status=status.HTTP_400_BAD_REQUEST)
         
         return Response({'success':True,'code':coupon_code,'discount_percentage':float(coupen.discount_percentage)})
+
+
+class updateOrderStatus(APIView):
+    def put(self,request,order_id):
+        serializer = Orderstatusserializer(order,data=request.data,partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"message": "order status updated",'status':serializer.data['status']})
+        return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
