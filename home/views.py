@@ -188,3 +188,9 @@ class updateOrderStatus(APIView):
         order.status = new_status
         order.save()
         return Response({'message':'Order status updated successfully','order_id':order_id,'new_status':order_status},status=status.HTTP_200_OK)
+
+
+        class DailySpecialView(generics.ListAPIView):
+            serializer_class = DailySpecialSerailizer
+            def get_query(self):
+                return MenuItem.objects.filter(is_daily_special=True)
