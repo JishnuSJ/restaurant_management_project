@@ -55,3 +55,9 @@ def is_resturant_open():
     }
     open_time,close_time = opening_hours.get(current_day)
     return open_time <= current_time <= close_time
+
+
+def calculate_discount(item):
+    if item.discount_code:
+        return item.price*Decimal('0.09')
+    return item.price
