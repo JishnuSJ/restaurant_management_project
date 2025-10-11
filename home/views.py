@@ -194,3 +194,8 @@ class updateOrderStatus(APIView):
             serializer_class = DailySpecialSerailizer
             def get_query(self):
                 return MenuItem.objects.filter(is_daily_special=True)
+
+
+def get_order_status(request,order_id):
+    order=Order.object.get(id=order_id)
+    return Response({'order_id':order_id,'status':order.status},status=status.HTTP_200_OK)
