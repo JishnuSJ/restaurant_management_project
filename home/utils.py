@@ -61,3 +61,11 @@ def calculate_discount(item):
     if item.discount_code:
         return item.price*Decimal('0.09')
     return item.price
+
+    
+def update_oredre_status(order_id,new_status):
+    order = Order.objects.get(id=order_id)
+    old_status = order.status
+    order.status = new_status
+    order.save()
+    return True,f"Order{order.id}status update to'new status'"
