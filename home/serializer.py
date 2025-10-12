@@ -26,3 +26,8 @@ class DailyspecialSeralizer(serializer.ModelSerializer):
     class Meta:
         model=MenuItem
         fields =['id','name','decription','price']
+
+class CreateUserReviewview(generics.CreateApiView):
+    serializer_class = UserReviewSerializer
+    permission_classes =[IsAuthenticatedOrReadonly]
+    
