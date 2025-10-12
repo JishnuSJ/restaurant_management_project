@@ -117,7 +117,5 @@ class Coupon(models.Model):
     valid_from = models.DateTimeField()
     valid_to =models.DateTimeField()
 
-
-
 python manage.py makemigration
 python manage.py migrate
