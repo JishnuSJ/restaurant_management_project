@@ -199,3 +199,12 @@ class updateOrderStatus(APIView):
 def get_order_status(request,order_id):
     order=Order.object.get(id=order_id)
     return Response({'order_id':order_id,'status':order.status},status=status.HTTP_200_OK)
+
+class Reseravation(models.Model):
+    def find_available_slot(start_range,end_range,time=30):
+        existing=cla.object.filter(start_time=end_range,end_time=start_range).order_by('start_time')
+        slot_duration = timedelta(minutes=slot_duration)
+        available_slot=[]
+        available_slot.append((current,current+slot_duration))
+
+        return  available_slot
