@@ -208,3 +208,9 @@ class Reseravation(models.Model):
         available_slot.append((current,current+slot_duration))
 
         return  available_slot
+
+class RestaurantInfo(APIView):
+    def(self,request):
+        restaurant=Restaurant.objects.first()
+        serializer = RestaurantSeralizer(restaurant)
+        return Response(serializer.data,status=status.HTTP_200_OK)
