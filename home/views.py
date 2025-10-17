@@ -118,6 +118,10 @@ class MenuCategoryListView(ListAPI):
         
         paginator= self.paginator_class()
         pagianted_items=paginator.pagination_query(items,request)
+    serializer = MenuCategoryserializer(item,daat=request.data,partial=True)
+    if serializer.is_valid:
+        serializer.save()
+        return Response({'message','available'},serializer.data)
     return paginator.get_paginated_response(serializer.data)
 
     
@@ -214,3 +218,5 @@ class RestaurantInfo(APIView):
         restaurant=Restaurant.objects.first()
         serializer = RestaurantSeralizer(restaurant)
         return Response(serializer.data,status=status.HTTP_200_OK)
+
+class 
