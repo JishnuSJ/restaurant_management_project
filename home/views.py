@@ -122,6 +122,8 @@ class MenuCategoryListView(ListAPI):
     if serializer.is_valid:
         serializer.save()
         return Response({'message','available'},serializer.data)
+
+        
     return paginator.get_paginated_response(serializer.data)
 
     
