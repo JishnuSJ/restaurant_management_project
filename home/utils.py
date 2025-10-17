@@ -69,3 +69,9 @@ def update_oredre_status(order_id,new_status):
     order.status = new_status
     order.save()
     return True,f"Order{order.id}status update to'new status'"
+
+def calculate_oredr(order_items):
+    for item in order_items:
+        qua=item.get('qua',0)
+        price=item.get('price',0)
+    return round(total,2)
