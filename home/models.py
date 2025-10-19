@@ -56,6 +56,15 @@ class Menuitem(models.Model):
     image = models.ImageField(upload_to='menu_image/',blank=True,null=True)
     available = models.BooleanField(default=True)
     category = models.ForeignKey(MenuCategory,on_delete=models.CASCADE,related_name="items")
+    def final_price(self):
+        try:
+            if self.discount_percentage<0 or self.discount_percentage>100:
+                raise ValueError("INvalid discount price")
+            discount_amount = self.price*(self.discount_percentage/100)
+            return round(float(final_price))
+        except Exception as e:
+            print({e})
+            return float(self.price)
 
 
 class Restaurantinfo(models.Model):
