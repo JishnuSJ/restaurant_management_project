@@ -1,4 +1,4 @@
-class MenuCategoryserializer(serializer.ModelSerializer):
+class MenuCategoryNameserializer(serializer.ModelSerializer):
     class Meta:
         models=MenuCategory
         fields = ['id','name','descripotion']
