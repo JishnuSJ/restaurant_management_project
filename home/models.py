@@ -117,5 +117,10 @@ class Coupon(models.Model):
     valid_from = models.DateTimeField()
     valid_to =models.DateTimeField()
 
+class Review(models.Model):
+    user=models.ForeignKey(User.on_delete=models.CASCADE)
+    rating = models.PositiveIntegerField()
+    text=models.TextField()
+
 python manage.py makemigration
 python manage.py migrate
