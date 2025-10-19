@@ -79,3 +79,8 @@ def calculate_oredr(order_items):
         qua=item.get('qua',0)
         price=item.get('price',0)
     return round(total,2)
+
+def is_valid_email(email):
+    if not isinstance(email,str):
+        return False
+    email_regex=r'[a-zA-Z0-9]+@
