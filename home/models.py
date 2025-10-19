@@ -103,7 +103,7 @@ class Subscribers(models.Model):
 
 
 class MenuCategory(models.Model):
-    name = models.CharField(max_length=100,unique=True)
+    namee = models.CharField(max_length=100,unique=True)
 
 class OrderStatus(models.Model):
     name = models.CharFields(max_length=100,unique=True)
