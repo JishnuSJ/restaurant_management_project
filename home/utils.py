@@ -58,6 +58,10 @@ def is_resturant_open():
 
 
 def calculate_discount(item):
+    if orginal_price<0:
+        raise ValueError("not neg")
+    if not(0<=discount_percentage<=100):
+        raise ValueError("Discount percentage 0 and 100")
     if item.discount_code:
         return item.price*Decimal('0.09')
     return item.price
