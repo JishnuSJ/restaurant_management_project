@@ -9,7 +9,7 @@ class OrderSerilaizer(serializers.ModelSerializer):
 
     class meta:
         model = Order
-        fields = ['id','customer','items','total_price','created_at']
+        fields = ['id','customer','items','total_price','created_at','short_id','status']
 
 class ContactFormmsubmittion(serializer.ModelSerializer):
     class Meta:
