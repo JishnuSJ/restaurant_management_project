@@ -35,7 +35,7 @@ class CreateUserReviewview(generics.CreateApiView):
 class UserReviewSerializer(serializer.ModelSerializer):
     class Meta:
         model=Review
-        fields=['id','user','rating','text']
+        fields=['id','user','rating','text','comment']
 
 class Openinghours(serializer.ModelSerializer):
     class Meta:
