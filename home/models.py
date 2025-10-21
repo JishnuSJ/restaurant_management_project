@@ -21,7 +21,7 @@ class Order(models.Model):
 
     def __str__(self):
         return self.name
-    
+        
     ORDER_STATUS_CHOICES = [
         ('PENDING','Pending'),
         ('CONFIRMED','Confirmed'),
