@@ -130,6 +130,7 @@ class Review(models.Model):
     user=models.ForeignKey(User.on_delete=models.CASCADE)
     rating = models.PositiveIntegerField()
     text=models.TextField()
+    comment = models.TextField()
 
 python manage.py makemigration
 python manage.py migrate
