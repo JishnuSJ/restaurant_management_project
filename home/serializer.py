@@ -42,3 +42,7 @@ class Openinghours(serializer.ModelSerializer):
         model=Openinghours
         fields=['day','opening_hours','closing_hours']
 
+class MenuItemSerializer(serializer.ModelSerializer):
+    class Meta:
+        model=MenuItem
+        fields = ['name','image']
