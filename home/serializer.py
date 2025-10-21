@@ -36,3 +36,8 @@ class UserReviewSerializer(serializer.ModelSerializer):
     class Meta:
         model=Review
         fields=['id','user','rating','text']
+
+class Openinghours(serializer.ModelSerializer):
+    class Meta:
+        model=Openinghours
+        fields=['day','opening_hours','closing_hours']
