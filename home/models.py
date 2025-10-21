@@ -50,6 +50,7 @@ class Contactform(models.Model):
 
 
 class Menuitem(models.Model):
+    Restaurant = models.ForeignKey('Resturant',on_delete=models.CASCADE,related_name='menu_item')
     name =  models.CharField(max_length=100)
     description = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=6)
