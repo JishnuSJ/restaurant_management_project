@@ -219,6 +219,7 @@ class RestaurantInfo(APIView):
     def(self,request):
         restaurant=Restaurant.objects.first()
         serializer = RestaurantSeralizer(restaurant)
+        'opening_hour':restaurant.get_opening_hours_display()
         return Response(serializer.data,status=status.HTTP_200_OK)
 
 class 
