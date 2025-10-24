@@ -64,6 +64,9 @@ def calculate_discount(item):
         raise ValueError("Discount percentage 0 and 100")
     if item.discount_code:
         return item.price*Decimal('0.09')
+    if ordder_total<0 or discount_percentage<0:
+        raise ValueError("input neg")
+    return round(ordder_total*(discount_percentage/100),2)
     return item.price
 
     
