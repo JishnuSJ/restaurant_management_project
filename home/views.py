@@ -46,6 +46,8 @@ def menu_list(request):
         {'name':'Kerala sadhya','price':100},
         {'name':'Masala dosha','price':80},
     ]
+    min=20
+    max=1600
     return render(request,'menu.html',{'menu_items':menu_items},{'items':items})
 
 
