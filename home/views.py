@@ -128,7 +128,11 @@ class MenuCategoryListView(ListAPI):
         try:
             return super().list(request,*args,**kwargs)
 
-
+    def get(selfr,reuest.id):
+        try:
+            item= self.get_queryset().get(id=id)
+            serializer=self.serializer_class(item)
+            return Response(serializer.data,status=status.HTTP_200_OK)
         
     return paginator.get_paginated_response(serializer.data)
 
