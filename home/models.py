@@ -55,8 +55,9 @@ class Menuitem(models.Model):
     description = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=6)
     image = models.ImageField(upload_to='menu_image/',blank=True,null=True)
-    available = models.BooleanField(default=True)
+    is_available = models.BooleanField(default=True)
     category = models.ForeignKey(MenuCategory,on_delete=models.CASCADE,related_name="items")
+    inc_name = models.CharField(max_length=100)
     def final_price(self):
         try:
             if self.discount_percentage<0 or self.discount_percentage>100:
