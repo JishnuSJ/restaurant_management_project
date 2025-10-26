@@ -45,4 +45,4 @@ class Openinghours(serializer.ModelSerializer):
 class MenuItemSerializer(serializer.ModelSerializer):
     class Meta:
         model=MenuItem
-        fields = ['name','image']
+        fields = ['name','id','image','price']
