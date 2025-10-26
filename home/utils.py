@@ -87,3 +87,9 @@ def is_valid_email(email):
     if not isinstance(email,str):
         return False
     email_regex=r'[a-zA-Z0-9]+@
+
+class MenItemManger(models.Manager):
+    def fet_top_selling_items():
+        return self.get_queryset().annotate(
+            total_orders=Count('order_items')
+        ).order_by('total_orders')[:num_items]
